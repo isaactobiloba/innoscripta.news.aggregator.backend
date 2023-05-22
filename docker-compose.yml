@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     image: news-aggregator-api:latest
-    container_name: ${APP_NAME}_api
+    container_name: app
     restart: unless-stopped
     tty: true
     environment:
@@ -23,7 +23,7 @@ services:
   #Nginx Service
   webserver:
     image: nginx:alpine
-    container_name: ${APP_NAME}_webserver
+    container_name: webserver
     restart: unless-stopped
     tty: true
     ports:
@@ -40,7 +40,7 @@ services:
   #MySQL Service
   db:
     image: mysql:8.0
-    container_name: ${APP_NAME}_db
+    container_name: db
     restart: unless-stopped
     tty: true
     ports:
